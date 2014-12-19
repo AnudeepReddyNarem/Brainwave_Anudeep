@@ -1,0 +1,90 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <script src="js/validate_input.js"></script>
+        <script type="text/javascript">
+            var val_good = new Array();
+            var val_bad = new Array();
+            var valusr ;
+            var valpass;
+            function getval(usr,pass)
+            {
+                valusr = document.getElementById("userid").value;
+                valpass = document.getElementById("pass").value;
+                validate_val(valusr,valpass)
+                //valarray.push(validate_val(valusr,valpass))
+            }
+            
+        </script>
+        <script type="text/javascript">
+            function good_comb(pushval)
+            {
+                
+                val_good.push(pushval);
+            }
+            function bad_comb(pushval)
+            {
+                
+                val_bad.push(pushval);
+            }
+        </script>
+        <script type="text/javascript">
+            function results()
+            {
+                var div = document.getElementById('demo');
+                div.innerHTML = "<ol id='demo' style='width: 25%;'><l1></l1></ol>";
+                for(var vals=0;vals< val_good.length;vals++)
+                    {
+                        
+
+                        div.innerHTML = div.innerHTML + "<li>"+ val_good[vals]+"</li>";
+                    }
+                    for(var vals=0;vals< val_bad.length;vals++)
+                    {
+                        
+
+                        div.innerHTML = div.innerHTML + "<li>"+ val_bad[vals]+"</li>";
+                    }
+            }
+            function result()
+            {
+                document.getElementById("demo1").innerHTML="good attempts "+val_good.length;
+                document.getElementById("demo2").innerHTML="bad attempts "+val_bad.length;
+                
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+        <form>
+        <table>
+            <tr>
+                <td>ID :</td><td><input type="text" id="userid" /></td>
+                </tr>
+                <tr>
+                <td>password :</td><td><input type="password" id="pass" /></td>
+                </tr>
+
+
+                <tr>
+                    <td><input type="button" onclick="getval()" value="submit"/></td>
+                    <td><input type="reset" value="cancel"></td>
+                    <td><input type="button" onclick="result() " value="show results"></td>
+                </tr>
+            
+        </table>
+        </form>
+            
+<ol id="demo" style="width: 25%;">
+</ol>
+            <p id="demo1"></p>
+            <p id="demo2"></p>
+            </center>
+    </body>
+</html>
